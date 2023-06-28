@@ -9,13 +9,17 @@ def input_hopital_data():
     ans = list()
 
     while True:
-        data = input("Input hospital data or say done if completed:\n")
-        if data.lower() == "done":
+        data = input("Input hospital data?(y/n):\n")
+        if data == "n":
             break
-        address = input("Input hospital address:\n")
-        inputData["hospital_name"] = data
-        inputData["address"] = address
-        ans.append(inputData)
+        else:
+            name = input("Input hospital name:\n")
+            address = input("Input hospital address:\n")
+
+            inputData["hospital_name"] = name
+            inputData["address"] = address
+            ans.append(inputData)
+    return ans
 
 
 def pickle_data():
@@ -28,6 +32,7 @@ def read_pickle_data():
     with open("Q3.pkl", "rb") as file:
         hospitals = pickle.load(file)
         print(hospitals)
+    return hospitals
 
 
 def write_pickle_data_in_csv():
@@ -37,6 +42,10 @@ def write_pickle_data_in_csv():
         # Write the header row
         writer.writerow(hospitals)
 
+
+# pickle_data()
+# read_pickle_data()
+# write_pickle_data_in_csv()
 
 # 4. Write a function that takes in a non empty array of distinct integers and an integer representing a target sum.
 # If any two numbers in the input array sum up to the target sum, the function should return them in an array, in any order.
@@ -61,7 +70,7 @@ def two_sum(arrayList, target):
     print(ans)
 
 
-two_sum(a, 10)
+# two_sum(a, 10)
 
 
 # 5. Find all of the numbers from 1–1000 that are divisible by 8 using list comprehension.
@@ -72,7 +81,7 @@ def divisible_by_8():
     print(ans)
 
 
-# divisibleBy8()
+# divisible_by_8()
 
 # 6. Count the number of spaces in a string using list comprehension. Eg string : “my name is Khan”.
 
@@ -82,7 +91,7 @@ def countSpaces(string):
     print(len(ans))
 
 
-# countSpaces('my name is Khan')
+# countSpaces("my name is Khan")
 
 
 # 7. Remove all the vowels from a string using list comprehension.
@@ -93,7 +102,7 @@ def vowels(string):
     print(ans)
 
 
-# vowels('mynameisKhan')
+# vowels("mynameisKhan")
 
 
 # 8. “A Python list comprehension consists of brackets containing the expression, which is executed
@@ -107,7 +116,7 @@ def words_less_than_4(string):
     print(ans)
 
 
-# words_less_than_4('my name is Khan')
+# words_less_than_4("my name is Khan")
 
 
 # 9. words = ['data', 'science', 'machine', 'learning']
@@ -137,7 +146,7 @@ def sorted_square(array):
     print(ans)
 
 
-# sortedSquare(a)
+# sorted_square(a)
 
 
 # 11. You are given a list of integers and an integer. Write a function that moves all
@@ -162,4 +171,4 @@ def move_target_at_last(array, target):
     print(array)
 
 
-# moveTargetAtLast(b,2)
+move_target_at_last(b, 2)
